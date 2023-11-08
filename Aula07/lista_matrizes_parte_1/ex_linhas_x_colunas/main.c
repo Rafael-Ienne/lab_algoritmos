@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
 	
 	for(x = 0; x < 10; x++){
 		for(y = 0; y < 3; y++){
-			valores[x][y] = -1;
+			valores[x][y] = 0;
 		}
 	}
 	
@@ -34,8 +34,8 @@ int main(int argc, char *argv[]) {
 		
 		if(r == 1){
 			
-			for(x = 0; x <= 9; x++){
-				for(y = 0; y <= 2; y++){
+			for(x = 0; x < 10; x++){
+				for(y = 0; y < 3; y++){
 					printf("Informe um valor inteiro: ");
 					scanf("%i", &valores[x][y]);
 					tamanho++;
@@ -48,8 +48,8 @@ int main(int argc, char *argv[]) {
 			
 			srand(time(NULL));
 			
-			for(x = 0; x <= 9; x++){
-				for(y = 0; y <= 2; y++){
+			for(x = 0; x < 10; x++){
+				for(y = 0; y < 3; y++){
 					valores[x][y] = rand() % 51;
 					tamanho++;
 				}
@@ -62,8 +62,8 @@ int main(int argc, char *argv[]) {
 			if(tamanho == 0){
 				printf("A matriz esta vazia \n");
 			} else {
-				for(x = 0; x <= 9; x++){
-					for(y = 0; y <= 2; y++){
+				for(x = 0; x < 10; x++){
+					for(y = 0; y < 3; y++){
 						printf("[%i][%i]: %i\t", x, y, valores[x][y]);
 					}
 					printf("\n");
@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
 					
 					printf("Valores presentes na linha %i: \n", n);
 					
-					for(y = 0; y <= 2; y++){
+					for(y = 0; y < 3; y++){
 						printf("%i\t", valores[n][y]);
 					}
 					
@@ -111,7 +111,7 @@ int main(int argc, char *argv[]) {
 					
 				} else {
 					
-					for(y = 0; y <= 2; y++){
+					for(y = 0; y < 3; y++){
 						somaLinhaX += valores[n][y];
 					}
 					
@@ -138,7 +138,7 @@ int main(int argc, char *argv[]) {
 					
 					printf("Valores presentes na coluna %i: \n", n);
 					
-					for(x = 0; x <= 9; x++){
+					for(x = 0; x < 10; x++){
 						printf("%i\t", valores[x][n]);
 					}
 					
@@ -164,11 +164,11 @@ int main(int argc, char *argv[]) {
 				if(n1 >= 0 && n1 <= 9 && n2 >= 0 && n2 <= 2){
 					
 						
-					for(y = 0; y <= 2; y++){
+					for(y = 0; y < 3; y++){
 						somaLinhaX += valores[n1][y];
 					}
 			
-					for(x = 0; x <= 9; x++){
+					for(x = 0; x < 10; x++){
 						somaColunaY += valores[x][n2];
 					}
 			

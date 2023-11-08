@@ -46,12 +46,13 @@ int main(int argc, char *argv[]) {
 				
 				if (quantAlunos < 5) {
 					
-                    printf("Informe um valor para adicionar ao vetor de RA: ");
+                    printf("Informe um RA: ");
                     scanf("%i", &ra);
-                    printf("Informe o primeiro nome para adicionar ao vetor de nomes: ");
+                    printf("Informe o primeiro nome: ");
                     scanf("%s", &nome);
-                    printf("Informe uma mensalidade para adicionar ao vetor de mensalidades: ");
+                    printf("Informe uma mensalidade: ");
                     scanf("%f", &mensalidade);
+                    
                     if(ra <= 0 || nome == "" || mensalidade <= 0){
                     	printf("Não foi possível completar o cadastro, pois foram inseridos dados nulos ou negativos \n");
 					} else {
@@ -106,7 +107,7 @@ int main(int argc, char *argv[]) {
 								printf("RA: %i \n", ras[i]);
 								printf("Primeiro nome: %s \n", nomes[i]);
 								printf("Mensalidade: R$ %.2f \n", mensalidades[i]);
-								printf("\n");
+								break;
 							}
 						}
 						
@@ -139,6 +140,9 @@ int main(int argc, char *argv[]) {
 								strcpy(nomes[j], nomes[j + 1]);
 								mensalidades[j] = mensalidades[j + 1];
 							}
+							ras[quantAlunos - 1] = 0;
+							strcpy(nomes[quantAlunos - 1], "");
+							mensalidades[quantAlunos - 1] = 0.0;
 							quantAlunos--;
                             removido = 1;
                             printf("Aluno com RA %i removido com sucesso.\n", ra);
@@ -210,13 +214,15 @@ int main(int argc, char *argv[]) {
 				if(quantAlunos == 0){
 					printf("Não há alunos para se limpar dados! \n");
 				} else {
+					
 					quantAlunos = 0;
+					
 					for(i = 0; i < 5; i++){
 						ras[i] = 0;
 						strcpy(nomes[i], "");
 						mensalidades[i] = 0.0;
 					}
-                	printf("Base de dados limpa.\n");
+                	printf("Base de dados limpa \n");
 				}
 				
 				break;

@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 				printf("Informe a posição onde se deseja adicionar a altura: ");
 				scanf("%i", &p);
 				
-				for(i = 0; i <= 9; i++){
+				for(i = 0; i < 10; i++){
 					if(p == i && alturas[i] == -1){
 						printf("Informe a altura que se deseja adicionar: ");
 						scanf("%f", &altura);
@@ -59,10 +59,7 @@ int main(int argc, char *argv[]) {
 				printf("Posição ou valor inválidos. Valor não adicionado! \n");
 			}
 			
-			printf("\n");
-			
 		} else if(r == 2){
-			
 			
 			if(tamanho == 0){
 				printf("Vetor vazio! \n");
@@ -73,57 +70,48 @@ int main(int argc, char *argv[]) {
 				if(p < 0 || p > 9){
 					printf("Essa posição não existe! \n");
 				} else if (alturas[p] != -1){
-					printf("Valor na posição %i: %.2f", p, alturas[p]);
+					printf("Valor na posição %i: %.2f \n", p, alturas[p]);
 				} else {
 					printf("A posição informada está vazia! \n");
 				}
 			}
-			
-			printf("\n");
 			
 		} else if(r == 3){
 			
 			somaAlturas = 0.0;
 			
 			if(tamanho > 0){
-				for(i = 0; i <= 9; i++){
+				for(i = 0; i < 10; i++){
 					if(alturas[i] > 0){
 						somaAlturas += alturas[i];
 					}	
 				}
 				
 				printf("Soma das alturas existentes no vetor: %.2f \n", somaAlturas);
-				printf("\n");
 			} else {
 				printf("O vetor está vazio para fazer essa operação \n");
-				printf("\n");
 			}
-			
 			
 		} else if(r == 4){
 			
 			printf("Quantidade de alturas existentes no vetor: %i \n", tamanho);
-			printf("\n");
 			
 		} else if(r == 5){
 			
 			quantVazias = 0;
 			
-			for(i= 0; i <= 9; i++){
+			for(i= 0; i < 10; i++){
 				if(alturas[i] < 0){
 					quantVazias += 1;
 				}
 			}
 			
 			printf("Quantidade de posições vazias existentes no vetor: %i \n", quantVazias);
-			printf("\n");
 			
 		} else if(r == 9){
 			printf("Encerrando a execução do programa... \n");
-			printf("\n");
 		} else {
 			printf("Valor inválido. Tente novamente \n");
-			printf("\n");
 		}
 		
 	} while (r != 9);

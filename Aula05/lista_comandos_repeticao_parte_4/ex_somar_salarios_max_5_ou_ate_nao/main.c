@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
 	
 	setlocale(LC_ALL, "Portuguese");
 	
-	float sal = 0, somaSal = 0, c = 1;
+	float sal = 0, somaSal = 0, c = 0;
 	int escolha = 0;
 	
 	printf("SOMAR SALÁRIOS (MÁXIMO 5 OU ATÉ INFORMAR ‘NAO’) \n");
@@ -18,14 +18,26 @@ int main(int argc, char *argv[]) {
 		
 		printf("Informe o valor de um salário: R$ ");
 		scanf("%f", &sal);
-		somaSal += sal;
-		printf("Deseja informar outro salário (0 = Não, 1 = Sim)? ");
-		scanf("%i", &escolha);
+		
+		if(sal <= 0.0){
+			printf("Salarios nulos ou negativos não são permitidos \n");
+		} else {
+			somaSal += sal;
+		}
+		
 		c = c + 1;
+		
+		if (c < 5) {
+            printf("Deseja informar outro salário (0 = Não, 1 = Sim)? ");
+            scanf("%i", &escolha);
+        } else {
+            printf("Número máximo de salários informados\n");
+            break;
+        }
 		
 	} while(c != 6 && escolha != 0);
 	
-	printf("A soma dos salários informados é: R$ %.2f \n", somaSal);
+	printf("A soma dos salários válidos é: R$ %.2f \n", somaSal);
 	
 	return 0;
 }

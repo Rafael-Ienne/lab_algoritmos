@@ -28,19 +28,23 @@ int main(int argc, char *argv[]) {
 				
 				quantPar = 0;
 				
-				printf("\n");
 				printf("Contar pares \n");
 				printf("\n");
 				
 				printf("Informe um número inteiro: ");
 				scanf("%i", &number);
-				for(i = 1; i <= number; i++){
-					if(i % 2 == 0){
-						quantPar += 1;
+				
+				if(number <= 0){
+					printf("Não são permitidos valores nulos ou negativos \n");
+				} else {
+					for(i = 1; i <= number; i++){
+						if(i % 2 == 0){
+							quantPar += 1;
+						}
 					}
+					
+					printf("Quantidade de valores pares no intervalo[1, %i]: %i \n", number, quantPar);
 				}
-				printf("Quantidade de valores pares no intervalo[1, %i]: %i", number, quantPar);
-				printf("\n");
 				
 				break;
 				
@@ -48,19 +52,23 @@ int main(int argc, char *argv[]) {
 				
 				quantImpar = 0;
 				
-				printf("\n");
 				printf("Contar ímpares \n");
 				printf("\n");
 				
 				printf("Informe um número inteiro: ");
 				scanf("%i", &number);
-				for(i = 1; i <= number; i++){
-					if(i % 2 != 0){
-						quantImpar += 1;
+				
+				if(number <= 0){
+					printf("Não são permitidos valores nulos ou negativos \n");
+				} else {
+					for(i = 1; i <= number; i++){
+						if(i % 2 != 0){
+							quantImpar += 1;
+						}
 					}
+					
+					printf("Quantidade de valores ímpares no intervalo[1, %i]: %i \n", number, quantImpar);
 				}
-				printf("Quantidade de valores ímpares no intervalo[1, %i]: %i", number, quantImpar);
-				printf("\n");
 				
 				break;
 				
@@ -68,19 +76,22 @@ int main(int argc, char *argv[]) {
 				
 				prodPar = 1;
 				
-				printf("\n");
 				printf("Produto pares \n");
 				printf("\n");
 				
 				printf("Informe um número inteiro: ");
 				scanf("%i", &number);
-				for(i = 1; i <= number; i++){
-					if(i % 2 == 0){
-						prodPar *= i;
+				
+				if(number <= 0){
+					printf("Não são permitidos valores nulos ou negativos \n");
+				} else {
+					for(i = 1; i <= number; i++){
+						if(i % 2 == 0){
+							prodPar *= i;
+						}
 					}
+					printf("Produto dos valores pares no intervalo[1, %i]: %i \n", number, prodPar);
 				}
-				printf("Produto dos valores pares no intervalo[1, %i]: %i", number, prodPar);
-				printf("\n");
 				
 				break;
 				
@@ -88,33 +99,34 @@ int main(int argc, char *argv[]) {
 				
 				prodImpar = 1;
 				
-				printf("\n");
 				printf("Produto ímpares \n");
 				printf("\n");
 				
 				printf("Informe um número inteiro: ");
 				scanf("%i", &number);
-				for(i = 1; i <= number; i++){
-					if(i % 2 != 0){
-						prodImpar *= i;
+				if(number <= 0){
+					printf("Valores nulos ou negativos não são permitidos \n");
+				} else {
+					for(i = 1; i <= number; i++){
+						if(i % 2 != 0){
+							prodImpar *= i;
+						}
 					}
+					
+					printf("Produto dos valores ímpares no intervalo[1, %i]: %i \n", number, prodImpar);
 				}
-				printf("Produto dos valores ímpares no intervalo[1, %i]: %i", number, prodImpar);
-				printf("\n");
 				
 				break;
 				
 			case 9:
 				
 				printf("Encerrando execução... \n");
-				printf("\n");
 				
 				break;
 				
 			default: 
 			
 				printf("Valor inválido! \n");
-				printf("\n");
 				
 				break;
 				

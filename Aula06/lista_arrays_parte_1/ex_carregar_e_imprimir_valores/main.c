@@ -8,26 +8,36 @@ int main(int argc, char *argv[]) {
 	
 	setlocale(LC_ALL, "Portuguese");
 	
-	int i = 0, idades[10];
+	int i = 0, idades[10], idade = 0, tamanho = 0;
 	
-	for(i = 0; i <= 9; i++){
+	for(i = 0; i < 10; i++){
 		idades[i] = -1;
 	}
 	
 	printf("CARREGAR E IMPRIMIR VALORES  \n");
 			
-	for(i = 0; i <= 9; i++){
+	while(tamanho < 10){
 		printf("Informe uma idade: ");
-		scanf("%i", &idades[i]);
+		scanf("%i", &idade);
+		if(idade <= 0){
+			printf("Idades nulas ou negativas não são permitidas. Tente novamente \n");
+		} else {
+			idades[tamanho] = idade;
+			tamanho ++;
+		}
 	}
 
 	printf("\n");
 
 	printf("Valores das idades e suas respectivas posições no vetor: \n");
 
-	for(i = 0; i <= 9; i++){
-		printf("Idade %i: posição %i \n", idades[i], i);
+	for(i = 0; i < 10; i++){
+		if (idades[i] != -1) {
+            printf("Idade %i: posição %i \n", idades[i], i);
+        }
 	}
+
+	system("pause");
 	
 	return 0;
 }

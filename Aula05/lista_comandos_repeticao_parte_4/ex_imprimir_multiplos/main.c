@@ -24,6 +24,8 @@ int main(int argc, char *argv[]) {
 		for(i = 0; i <= n; i++){
 			printf("%i \n", i);
 		}
+	} else if(p < 0){
+		printf("Incrementos negativos não são permitidos \n");
 	} else {
 		for(i = 0; i <= n; i = i + p){
 			printf("%i \n", i);

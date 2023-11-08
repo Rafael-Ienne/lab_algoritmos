@@ -233,11 +233,11 @@ int main(int argc, char *argv[]) {
 				}
 				
 				if(quantPar > quantImpar){
-					printf("Os valores pares estão em maior quantidade \n");
+					printf("Os valores pares tiveram maior contagem \n");
 				} else if(quantPar < quantImpar){
-					printf("Os valores ímpares estão em maior quantidade \n");
+					printf("Os valores ímpares tiveram maior contagem \n");
 				} else {
-					printf("Os valores ímpares e pares estão na mesma quantidade \n");
+					printf("Os valores ímpares e pares tiveram a mesma contagem \n");
 				}
 			}
 			

@@ -62,7 +62,6 @@ int main(int argc, char *argv[]) {
                     printf("Não é possível adicionar um valor ao vetor A, pois está cheio \n");
                 }
                 
-                printf("\n");
                 break;
 
             case 2:
@@ -75,6 +74,7 @@ int main(int argc, char *argv[]) {
                 } else {
                     printf("Não é possível adicionar um valor ao vetor B, pois está cheio \n");
                 }
+                
                 break;
 
             case 3:
@@ -83,9 +83,11 @@ int main(int argc, char *argv[]) {
                     printf("Digite a posição (0 a %i) para remover do vetor A: ", tamanhoA - 1);
                     scanf("%i", &p);
                     if (p >= 0 && p < tamanhoA) {
+                    	vetorA[p] = 0;
                         for (i = p; i < tamanhoA - 1; i++) {
                             vetorA[i] = vetorA[i + 1];
                         }
+                        vetorA[tamanhoA - 1] = 0;
                         tamanhoA--;
                         printf("Valor removido \n");
                     } else {
@@ -102,9 +104,11 @@ int main(int argc, char *argv[]) {
                     printf("Digite a posição (0 a %i) para remover do vetor B: ", tamanhoB - 1);
                     scanf("%d", &p);
                     if (p >= 0 && p < tamanhoB) {
+                    	vetorB[p] = 0;
                         for (i = p; i < tamanhoB - 1; i++) {
                             vetorB[i] = vetorB[i + 1];
                         }
+                        vetorB[tamanhoB - 1] = 0;
                         tamanhoB--;
                         printf("Valor removido \n");
                     } else {
@@ -124,7 +128,7 @@ int main(int argc, char *argv[]) {
                     }
                     printf("\n");
                 } else {
-                    printf("O vetor A está vazio.\n");
+                    printf("O vetor A está vazio \n");
                 }
                 break;
 
@@ -137,18 +141,20 @@ int main(int argc, char *argv[]) {
                     }
                     printf("\n");
                 } else {
-                    printf("O vetor B está vazio.\n");
+                    printf("O vetor B está vazio \n");
                 }
                 break;
 
             case 7:
             	
                 printf("Número de valores no vetor A: %d\n", tamanhoA);
+                
                 break;
 
             case 8:
             	
                 printf("Número de valores no vetor B: %d\n", tamanhoB);
+                
                 break;
 
             case 9:
@@ -192,6 +198,7 @@ int main(int argc, char *argv[]) {
                 for (i = 0; i < tamanhoB; i++) {
                     somaB += vetorB[i];
                 }
+                
                 if (somaA > somaB) {
                     printf("O vetor A tem maior soma de valores \n");
                 } else if (somaB > somaA) {
@@ -213,13 +220,13 @@ int main(int argc, char *argv[]) {
                             }
                             tamanhoA--;
                             i--;
-                            printf("Valores pares transferidos \n");
                         } else {
                             printf("O vetor B está cheio. Não é possível transferir mais valores pares \n");
                             break;
                         }
                     }
                 }
+                
                 break;
 
             case 13:
@@ -234,13 +241,13 @@ int main(int argc, char *argv[]) {
                             }
                             tamanhoB--;
                             i--; 
-                            printf("Valores ímpares transferidos \n");
                         } else {
                             printf("O vetor A está cheio. Não é possível transferir mais valores ímpares \n");
                             break;
                         }
                     }
                 }
+                
                 break;
 
             case 14:
@@ -254,10 +261,10 @@ int main(int argc, char *argv[]) {
                     }
                     
                     mediaA /= tamanhoA;
-                    printf("Média dos valores em A: %f \n", mediaA);
+                    printf("Média dos valores em A: %.2f \n", mediaA);
                     
                 } else {
-                    printf("O vetor A está vazio.\n");
+                    printf("O vetor A está vazio \n");
                 }
 
                 if (tamanhoB > 0) {
@@ -269,7 +276,7 @@ int main(int argc, char *argv[]) {
                     }
                     
                     mediaB /= tamanhoB;
-                    printf("Média dos valores em B: %f \n", mediaB);
+                    printf("Média dos valores em B: %.2f \n", mediaB);
                     
                 } else {
                     printf("O vetor B está vazio \n");
@@ -305,6 +312,7 @@ int main(int argc, char *argv[]) {
                 } else {
                     printf("Pelo menos um dos vetores está vazio, não sendo possível comparar as médias \n");
                 }
+                
                 break;
 
             case 16:
@@ -320,7 +328,7 @@ int main(int argc, char *argv[]) {
                     }
                     printf("Maior valor em A: %i \n", maiorA);
                 } else {
-                    printf("O vetor A está vazio.\n");
+                    printf("O vetor A está vazio \n");
                 }
 
                 if (tamanhoB > 0) {
@@ -334,6 +342,7 @@ int main(int argc, char *argv[]) {
                 } else {
                     printf("O vetor B está vazio \n");
                 }
+                
                 break;
 
             case 17:
@@ -363,23 +372,28 @@ int main(int argc, char *argv[]) {
                 } else {
                     printf("O vetor B está vazio \n");
                 }
+                
                 break;
 
             case 18:
             	
                 if (tamanhoA > 0 && tamanhoB > 0) {
+                	
                     maiorA = vetorA[0];
                     maiorB = vetorB[0];
+                    
                     for (i = 0; i < tamanhoA; i++) {
                         if (vetorA[i] > maiorA) {
                             maiorA = vetorA[i];
                         }
                     }
+                    
                     for (i = 0; i < tamanhoB; i++) {
                         if (vetorB[i] > maiorB) {
                             maiorB = vetorB[i];
                         }
                     }
+                    
                     if (maiorA > maiorB) {
                         printf("O vetor A tem o maior valor \n");
                     } else if (maiorB > maiorA) {
@@ -388,8 +402,9 @@ int main(int argc, char *argv[]) {
                         printf("Os vetores A e B possuem o mesmo maior valor \n");
                     }
                 }else {
-                    printf("Um dos vetores está vazio, não sendo possível determinar o maior valor.\n");
+                    printf("Um dos vetores está vazio, não sendo possível determinar o maior valor \n");
                 }
+                
                 break;
 
             case 99:

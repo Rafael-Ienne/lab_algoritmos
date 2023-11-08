@@ -8,11 +8,11 @@ int main(int argc, char *argv[]) {
 	
 	setlocale(LC_ALL, "Portuguese");
 	
-	int option = 0, i = 0;
-	float mensalidades[10], somaMensalidades = 0.0;
+	int option = 0, i = 0, tamanho = 0;
+	float mensalidades[10], somaMensalidades = 0.0, mensalidade = 0.0;
 	
-	for(i = 0; i <= 9; i++){
-		mensalidades[i] = -1.0;
+	for(i = 0; i < 10; i++){
+		mensalidades[i] = 0.0;
 	}
 	
 	do {
@@ -30,17 +30,28 @@ int main(int argc, char *argv[]) {
 		
 		if(option == 1){
 			
-			for(i = 0; i <= 9; i++){
+			for(i = 0; i < 10; i++){
 				mensalidades[i] = 0.0;
 			}
+			
+			tamanho = 0;
 			
 			printf("Mensalidades zeradas! \n");
 			
 		} else if(option == 2){
 			
-			for(i = 0; i <= 9; i++){
+			tamanho = 0;
+			
+			while(tamanho < 10){
 				printf("Informe o valor da mensalidade: ");
-				scanf("%f", &mensalidades[i]);
+				scanf("%f", &mensalidade);
+				
+				if(mensalidade <= 0.0){
+					printf("Mensalidades nulas ou negativas não são permitidas. Tente novamente \n");
+				} else {
+					mensalidades[tamanho] = mensalidade;
+					tamanho++;
+				}
 			}
 			
 			printf("\n");
@@ -49,15 +60,19 @@ int main(int argc, char *argv[]) {
 			
 		} else if(option == 3){
 			
-			for(i = 0; i <= 9; i++){
-				printf("Posição %i: R$ %.2f \n", i, mensalidades[i]);
+			if(tamanho == 0){
+				printf("O vetor está zerado \n");
+			} else {
+				for(i = 0; i < 10; i++){
+					printf("Posição %i: R$ %.2f \n", i, mensalidades[i]);
+				}
 			}
 			
 		} else if(option == 4){
 			
 			somaMensalidades = 0.0;
 			
-			for(i = 0; i <= 9; i++){
+			for(i = 0; i < 10; i++){
 				somaMensalidades += mensalidades[i];
 			}
 			
@@ -72,6 +87,8 @@ int main(int argc, char *argv[]) {
 		}
 				
 	} while(option != 9);
+	
+	system("pause");
 	
 	return 0;
 }

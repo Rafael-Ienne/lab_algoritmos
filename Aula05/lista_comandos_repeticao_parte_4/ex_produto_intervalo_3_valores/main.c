@@ -22,8 +22,10 @@ int main(int argc, char *argv[]) {
 	printf("\n");
 	
 	if(a == b || a == c || b == c){
-		printf("Valores iguais não são válidos!");
+		printf("Valores iguais não são válidos. Tente novamente ");
 		printf("\n");
+	} else if(a <= 0 || b <= 0 || c <= 0){
+		printf("Valores nulos ou negativos não são permitidos. Tente novamente \n");
 	} else {
 	
 		for(i = 1; i <= a; i++){

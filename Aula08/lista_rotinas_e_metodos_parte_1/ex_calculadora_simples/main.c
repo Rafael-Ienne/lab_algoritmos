@@ -4,35 +4,60 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-float r = 0.0;
+float r = 0.0, n1 = 0.0, n2 = 0.0;
 
-void funcSomar(float n1, float n2){
-	
+void funcSomar(){
+
+	printf("Informe o primeiro valor: ");
+	scanf("%f", &n1);
+	printf("Informe o segundo valor: ");
+	scanf("%f", &n2);
+
 	r = n1 + n2;
 	
 	printf("Resultado da soma: %.2f \n", r);
 }
 
-void funcSubtrair(float n1, float n2){
+void funcSubtrair(){
+	
+	printf("Informe o primeiro valor: ");
+	scanf("%f", &n1);
+	printf("Informe o segundo valor: ");
+	scanf("%f", &n2);
 	
 	r = n1 - n2;
 	
 	printf("Resultado da subtracao: %.2f \n", r);
 }
 
-void funcMultiplicar(float n1, float n2){
+void funcMultiplicar(){
+	
+	printf("Informe o primeiro valor: ");
+	scanf("%f", &n1);
+	printf("Informe o segundo valor: ");
+	scanf("%f", &n2);
+	
 	r = n1 * n2;
 	
 	printf("Resultado da multiplicacao: %.2f \n", r);
 }
 
-void funcQuadrado(float n1){
+void funcQuadrado(){
+	
+	printf("Informe um valor: ");
+	scanf("%f", &n1);
+	
 	r = n1 * n1;
 	
 	printf("Resultado do quadrado de %.2f: %.2f \n", n1, r);
 }
 
-void funcDividir(float n1, float n2){
+void funcDividir(){
+	
+	printf("Informe o primeiro valor: ");
+	scanf("%f", &n1);
+	printf("Informe o segundo valor: ");
+	scanf("%f", &n2);
 	
 	if(n2 == 0){
 		printf("Erro, pois o denominador nao pode ser nulo \n");
@@ -43,7 +68,10 @@ void funcDividir(float n1, float n2){
 	}
 }
 
-void funcRaizQuadrada(float n1){
+void funcRaizQuadrada(){
+	
+	printf("Informe um valor: ");
+	scanf("%f", &n1);
 	
 	if(n1 < 0){
 		printf("Nao e possivel calcular a raiz quadrada de um valor negativo \n");
@@ -77,64 +105,40 @@ int main(int argc, char *argv[]) {
 		switch(resp){
 			
 			case 1: 
-			
-				printf("Informe o primeiro valor: ");
-				scanf("%f", &n1);
-				printf("Informe o segundo valor: ");
-				scanf("%f", &n2);
 				
-				funcSomar(n1, n2);
+				funcSomar();
 				
 				break;
 			
 			case 2:
 				
-				printf("Informe o primeiro valor: ");
-				scanf("%f", &n1);
-				printf("Informe o segundo valor: ");
-				scanf("%f", &n2);
 				
-				funcSubtrair(n1, n2);
+				
+				funcSubtrair();
 			
 				break;
 				
 			case 3:
 				
-				printf("Informe o primeiro valor: ");
-				scanf("%f", &n1);
-				printf("Informe o segundo valor: ");
-				scanf("%f", &n2);
-				
-				funcMultiplicar(n1, n2);
+				funcMultiplicar();
 			
 				break;
 				
 			case 4:
 				
-				printf("Informe o primeiro valor: ");
-				scanf("%f", &n1);
-				printf("Informe o segundo valor: ");
-				scanf("%f", &n2);
-				
-				funcDividir(n1, n2);
+				funcDividir();
 			
 				break;
 					
 			case 5:
 				
-				printf("Informe um valor: ");
-				scanf("%f", &n1);
-				
-				funcQuadrado(n1);
+				funcQuadrado();
 				
 				break;
 				
 			case 6:
 				
-				printf("Informe um valor: ");
-				scanf("%f", &n1);
-				
-				funcRaizQuadrada(n1);
+				funcRaizQuadrada();
 				
 				break;
 				

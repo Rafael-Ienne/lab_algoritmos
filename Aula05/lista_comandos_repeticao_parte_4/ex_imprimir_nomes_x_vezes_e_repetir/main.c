@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <string.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
@@ -10,7 +11,7 @@ int main(int argc, char *argv[]) {
 	
 	int n = 0, r = 0, i = 0;
 	
-	char name[30] = "";
+	char name[30];
 	
 	printf("IMPRIMIR NOMES X VEZES E REPETIR \n");
 	
@@ -22,8 +23,12 @@ int main(int argc, char *argv[]) {
 		printf("Informe o número de repetições desejado: ");
 		scanf("%i", &n);
 		
-		for(i = 1; i <= n; i++){
-			printf("%i - %s \n", i, name);
+		if(n <= 0){
+			printf("Não são permitidos valores nulos ou negativos \n");
+		} else {
+			for(i = 1; i <= n; i++){
+				printf("%i - %s \n", i, name);
+			}
 		}
 		
 		printf("\n");
@@ -32,7 +37,13 @@ int main(int argc, char *argv[]) {
 		scanf("%i", &r);
 		printf("\n");
 		
+		if(r == 0){
+			printf("Encerrando a execução do programa... \n");
+		}
+		
 	} while(r != 0);
+	
+	system("pause");
 	
 	return 0;
 }

@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
 	
 	int idades[100], i = 0, r = 0, x = 0, quantIdades = 0, somaIdades = 0, somaIdadesImpares = 0, idade = 0, j = 0, removido = 0, tamanho = 0, ocupado = 0;
 	
-	for(i = 0; i <= 99; i++){
+	for(i = 0; i < 100; i++){
 		idades[i] = -1;
 	}
 	
@@ -19,15 +19,15 @@ int main(int argc, char *argv[]) {
 		printf("\n");
 		printf("MENU - IDADES \n");
 		printf("1. Adicionar  \n");
-		printf("2. Adicionar Idade na Posição X   \n");
-		printf("3. Imprimir Posição X   \n");
-		printf("4. Imprimir Todas  \n");
-		printf("5. Remover Idade da Posição X \n");
-		printf("6. Remover Todas \n");
-		printf("7. Contar Idades \n");
-		printf("8. Somar Idades \n");
-		printf("9. Somar Idades Ímpares \n");
-		printf("10. Imprimir Idades Pares \n");
+		printf("2. Adicionar idade na posição X   \n");
+		printf("3. Imprimir posição X   \n");
+		printf("4. Imprimir todas  \n");
+		printf("5. Remover idade da posição X \n");
+		printf("6. Remover todas \n");
+		printf("7. Contar idades \n");
+		printf("8. Somar idades \n");
+		printf("9. Somar idades impares \n");
+		printf("10. Imprimir idades pares \n");
 		printf("99. Sair \n");
 		printf("Digite a opção: ");
 		scanf("%i", &r);
@@ -46,8 +46,6 @@ int main(int argc, char *argv[]) {
 				printf("Idades nulas ou negativas não são permitidas \n");
 			}
 			
-			printf("\n");
-			
 		} else if(r == 2){
 			
 			if(tamanho < 100){
@@ -60,7 +58,7 @@ int main(int argc, char *argv[]) {
 					
 					printf("Informe a posição onde se quer adicionar: ");
 					scanf("%i", &x);
-					if(x >= 0 && x <= 99){
+					if(x >= 0 && x < 100){
 						if(idades[x] == -1){
 							idades[x] = idade;
 							printf("Valor adicionado \n");
@@ -79,9 +77,7 @@ int main(int argc, char *argv[]) {
 			} else {
 				printf("O vetor está cheio para realizar tal operação \n");
 			}
-			
-			printf("\n");
-			
+		
 		} else if(r == 3){
 			
 			if(tamanho == 0){
@@ -90,7 +86,7 @@ int main(int argc, char *argv[]) {
 				printf("Informe a posição X sobre a qual quer saber a idade: ");
 				scanf("%i", &x);
 				
-				if(x >= 0 && x <= 99){
+				if(x >= 0 && x < 100){
 					if(idades[x] == -1){
 						printf("A posição está vazia \n");
 					} else {
@@ -106,14 +102,12 @@ int main(int argc, char *argv[]) {
 			if(tamanho == 0){
 				printf("O vetor está vazio \n");
 			} else {
-				for(i = 0; i <= 99; i++){
+				for(i = 0; i < 100; i++){
 					if(idades[i] != -1){
 						printf("%i \n", idades[i]);
 					}
 				}
 			}
-			
-			printf("\n");
 			
 		} else if(r == 5){
 			
@@ -125,14 +119,16 @@ int main(int argc, char *argv[]) {
 				printf("Informe a posição X da qual se quer remover a idade: ");
 				scanf("%i", &x);
 				
-				if(x >= 0 && x <= 99){
+				if(x >= 0 && x < 100){
 					if(idades[x] != -1){
 						for(j = x; j < 99; j++){
 							idades[j] = idades[j + 1];
-							removido = 1;
 						}
+						removido = 1;
+						idades[tamanho - 1] = -1;
 						tamanho--;
 						printf("Idade removida \n");
+						break;
 					} else {
 						printf("A posição está vazia! \n");
 					}
@@ -145,11 +141,9 @@ int main(int argc, char *argv[]) {
 				printf("Valor não removido \n");
 			}
 			
-			printf("\n");
-			
 		} else if(r == 6){
 			
-			for(i = 0; i <= 99; i++){
+			for(i = 0; i < 100; i++){
 				idades[i] = -1;
 			}
 			
@@ -165,7 +159,7 @@ int main(int argc, char *argv[]) {
 			
 			somaIdades = 0;
 			
-			for(i = 0; i <= 99; i++){
+			for(i = 0; i < 100; i++){
 				if(idades[i] != -1){
 					somaIdades += idades[i];
 				}
@@ -177,7 +171,7 @@ int main(int argc, char *argv[]) {
 			
 			somaIdadesImpares = 0;
 			
-			for(i = 0; i <= 99; i++){
+			for(i = 0; i < 100; i++){
 				if(idades[i] % 2 != 0 && idades[i] != -1){
 					somaIdadesImpares += idades[i];
 				}
@@ -187,7 +181,7 @@ int main(int argc, char *argv[]) {
 			
 		} else if(r == 10){
 			
-			for(i = 0; i <= 99; i++){
+			for(i = 0; i < 100; i++){
 				if(idades[i] % 2 == 0){
 					printf("%i \n", idades[i]);
 				}
@@ -195,10 +189,8 @@ int main(int argc, char *argv[]) {
 			
 		} else if(r == 99){
 			printf("Encerrando a execução do programa... \n");
-			printf("\n");
 		} else {
 			printf("Valor inválido! \n");
-			printf("\n");
 		}
 		
 	} while (r != 99);

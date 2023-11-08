@@ -9,7 +9,11 @@ int main(int argc, char *argv[]) {
 	
 	setlocale(LC_ALL, "Portuguese");
 	
-	int option = 0, i = 0, valoresAleatorios[60], somaAleatorios = 0, quantImpar = 0, somaImpar = 0, quantRepetidos = 0, n = 0;
+	int option = 0, i = 0, valoresAleatorios[60], somaAleatorios = 0, quantImpar = 0, somaImpar = 0, quantRepetidos = 0, n = 0, tamanho = 0;
+	
+	for(i = 0; i < 60; i++){
+		valoresAleatorios[i] = 0;
+	}
 	
 	do {
 		
@@ -29,9 +33,11 @@ int main(int argc, char *argv[]) {
 		
 		if(option == 1){
 			
-			for(i = 0; i <= 59; i++){
+			for(i = 0; i < 60; i++){
 				valoresAleatorios[i] = -1;
 			}
+			
+			tamanho = 0;
 			
 			printf("Valores zerados! \n");
 			
@@ -39,87 +45,109 @@ int main(int argc, char *argv[]) {
 			
 			srand(time(NULL));
 			
-			for(i = 0; i <= 59; i++){
-				valoresAleatorios[i] = 1 + rand() % 59;
+			for(i = 0; i < 60; i++){
+				valoresAleatorios[i] = 1 + rand() % 60;
 			}
+			
+			tamanho = 60;
 			
 			printf("Valores aleatórios carregados! \n");
 			
 		} else if(option == 3){
 			
-			for(i = 0; i <= 59; i++){
-				printf("Valor %i: posição %i \n", valoresAleatorios[i], i);
+			if(tamanho == 0){
+				printf("O vetor está zerado \n");
+			} else {
+				for(i = 0; i < 60; i++){
+					printf("Valor %i: posição %i \n", valoresAleatorios[i], i);
+				}
 			}
 			
 		} else if(option == 4){
 			
 			somaAleatorios = 0;
 			
-			for(i = 0; i <= 59; i++){
-				somaAleatorios += valoresAleatorios[i];
+			if(tamanho == 0){
+				printf("O vetor está zerado \n");
+			} else {
+				
+				for(i = 0; i < 60; i++){
+					somaAleatorios += valoresAleatorios[i];
+				}
+				
+				printf("A soma dos valores é: %i \n", somaAleatorios);
 			}
-			
-			printf("A soma dos valores é: %i", somaAleatorios);
 			
 		} else if(option == 5){
 			
 			quantImpar = 0;
 			somaImpar = 0;
 			
-			printf("Relatório valores ímpares \n");
+			if(tamanho == 0){
+				printf("O vetor está zerado \n");
+			} else {
+				printf("Relatório valores ímpares \n");
 			
-			for(i = 0; i <= 59; i++){
-				if(valoresAleatorios[i] % 2 != 0){
-					quantImpar += 1;
-					somaImpar += valoresAleatorios[i];
-				}
-			}
-			
-			printf("Quantidade de valores ímpares: %i \n", quantImpar);
-			printf("Soma de valores ímpares: %i \n", somaImpar);
-			
-		} else if(option == 6){
-		 	
-		 	printf("Informe um valor inteiro entre 1 e 60: ");
-		 	scanf("%i", &n);
-		 	
-		 	printf("\n");
-		 	
-		 	if(n > 1 && n < 60){
-		 		printf("Valores no vetor maiores que %i: \n", n);
-		 	
-			 	for(i = 0; i <= 59; i++){
-			 		if(valoresAleatorios[i] > n){
-			 			printf("%i \n", valoresAleatorios[i]);
+				for(i = 0; i < 60; i++){
+					if(valoresAleatorios[i] % 2 != 0){
+						quantImpar += 1;
+						somaImpar += valoresAleatorios[i];
 					}
 				}
-			 } else {
-			 	printf("O valor informado não pertence ao intervalo especificado. Tente novamente \n");
-			 }
-		 	
+				
+				printf("Quantidade de valores ímpares: %i \n", quantImpar);
+				printf("Soma de valores ímpares: %i \n", somaImpar);
+			}
+			
+		} else if(option == 6){
+			
+			if(tamanho == 0){
+				printf("O vetor está zerado \n");
+			} else {
+				printf("Informe um valor inteiro entre 1 e 60: ");
+			 	scanf("%i", &n);
+			 	
+			 	printf("\n");
+			 	
+			 	if(n >= 1 && n <= 60){
+			 		printf("Valores no vetor maiores que %i: \n", n);
+			 	
+				 	for(i = 0; i < 60; i++){
+				 		if(valoresAleatorios[i] > n){
+				 			printf("%i \n", valoresAleatorios[i]);
+						}
+					}
+				} else {
+				 	printf("O valor informado não pertence ao intervalo especificado. Tente novamente \n");
+				}
+			}
 		 	
 		} else if(option == 7){
 			
 			quantRepetidos = 0;
-		 	
-		 	printf("Informe um valor inteiro entre 1 e 60: ");
-		 	scanf("%i", &n);
-		 	
-		 	printf("\n");
-		 	
-		 	if(n > 1 && n < 60){
-		 	
-			 	for(i = 0; i <= 59; i++){
-			 		if(valoresAleatorios[i] == n){
-			 			quantRepetidos += 1;
-				    }
+			
+			if(tamanho == 0){
+				printf("O vetor está zerado \n");
+			} else {
+				printf("Informe um valor inteiro entre 1 e 60: ");
+			 	scanf("%i", &n);
+			 	
+			 	printf("\n");
+			 	
+			 	if(n >= 1 && n <= 60){
+			 	
+				 	for(i = 0; i < 60; i++){
+				 		if(valoresAleatorios[i] == n){
+				 			quantRepetidos += 1;
+					    }
+					}
+					
+					printf("Quantidade de vezes que o número %i aparece no vetor: %i \n", n, quantRepetidos);
+				} else {
+					printf("O valor informado não pertence ao intervalo especificado. Tente novamente \n");
 				}
-				
-				printf("Quantidade de vezes que o número %i aparece no vetor: %i \n", n, quantRepetidos);
-			 } else {
-			 	printf("O valor informado não pertence ao intervalo especificado. Tente novamente \n");
-			 }
 		 	
+			}
 		 	
 		} else if(option == 8){
 		 	

@@ -72,6 +72,7 @@ int main(int argc, char *argv[]) {
 			if(tamanho == 0){
 				printf("A matriz esta vazia. Preencha ela primeiro para realizar essa operação \n");
 			} else {
+				
 				for(x = 0; x < 10; x++){
 				
 					somaLinhaX = 0;
@@ -110,6 +111,7 @@ int main(int argc, char *argv[]) {
 			if(tamanho == 0){
 				printf("A matriz esta vazia. Preencha ela primeiro para realizar essa operação \n");
 			} else {
+				
 				for(x = 0; x < 10; x++){
 				
 					somaLinhaX = 0;
@@ -136,7 +138,7 @@ int main(int argc, char *argv[]) {
 				printf("Valores presentes na linha %i: \n", p);
 				
 				for(y = 0; y < 3; y++){
-					printf("%i ", valores[p][y]);
+					printf("%i\t ", valores[p][y]);
 				}
 			}
 			
@@ -148,6 +150,7 @@ int main(int argc, char *argv[]) {
 			if(tamanho == 0){
 				printf("A matriz esta vazia. Preencha ela primeiro para realizar essa operação \n");
 			} else {
+				
 				for(y = 0; y < 3; y++){
 				
 					somaColunaY = 0;

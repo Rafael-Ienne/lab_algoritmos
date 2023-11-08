@@ -4,6 +4,10 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
+void mostrarResultado(float r){
+	printf("Area: %.2f \n", r);
+}
+
 void erro(){
 	printf("Valores nulos ou negativos nao sao permitidos. Tente novamente \n");
 }
@@ -79,7 +83,7 @@ int main(int argc, char *argv[]) {
 				} else {
 					resultado = funcAreaRetangulo(n1, n2);
 			
-					printf("A area do retangulo e: %.2f \n", resultado);
+					mostrarResultado(resultado);
 				}
 				
 				break;
@@ -96,7 +100,7 @@ int main(int argc, char *argv[]) {
 				} else {
 					resultado = funcAreaTriangulo(n1, n2);
 					
-					printf("A area do triangulo e: %.2f \n", resultado);
+					mostrarResultado(resultado);
 				}
 			
 				break;
@@ -111,8 +115,9 @@ int main(int argc, char *argv[]) {
 				} else {
 					resultado = funcAreaQuadrado(n1);
 					
-					printf("A area do quadrado e: %.2f \n", resultado);
+					mostrarResultado(resultado);
 				}
+				
 				break;
 				
 			case 4:
@@ -126,8 +131,9 @@ int main(int argc, char *argv[]) {
 				
 					resultado = funcAreaCirculo(n1);
 					
-					printf("A area do circulo e: %.2f \n", resultado);
+					mostrarResultado(resultado);
 				}
+				
 				break;
 					
 			case 5:
@@ -145,7 +151,7 @@ int main(int argc, char *argv[]) {
 				
 					resultado = funcAreaParalelepipedo(n1, n2, n3);
 					
-					printf("A area do paralelepipedo e: %.2f \n", resultado);
+					mostrarResultado(resultado);
 					
 				}
 				
@@ -164,7 +170,7 @@ int main(int argc, char *argv[]) {
 				
 					resultado = funcAreaLosango(n1, n2);
 					
-					printf("A area do losango e: %.2f \n", resultado);
+					mostrarResultado(resultado);
 					
 				}
 				
@@ -183,7 +189,7 @@ int main(int argc, char *argv[]) {
 				
 					resultado = funcAreaCone(n1, n2);
 					
-					printf("A area do cone e: %.2f \n", resultado);
+					mostrarResultado(resultado);
 				}
 				
 				break;
@@ -203,7 +209,7 @@ int main(int argc, char *argv[]) {
 				
 					resultado = funcAreaTrapezio(n1, n2, n3);
 					
-					printf("A area do trapezio e: %.2f \n", resultado);
+					mostrarResultado(resultado);
 				}
 				
 				break;

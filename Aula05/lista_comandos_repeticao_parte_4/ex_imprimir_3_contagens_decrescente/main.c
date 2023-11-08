@@ -22,24 +22,30 @@ int main(int argc, char *argv[]) {
 	scanf("%i", &valor3);
 	printf("\n");
 	
-	printf("Impressão contagem do valor %i: \n", valor1);
-	for(i = valor1; i >= 1; i--){
-		printf("%i \n", i);
+	if(valor1 <= 0 || valor2 <= 0 || valor3 <= 0){
+		printf("Valores nulos ou negativos não são permitidos \n");
+	} else {
+		printf("Impressão contagem do valor %i: \n", valor1);
+		for(i = valor1; i >= 1; i--){
+			printf("%i \n", i);
+		}
+		
+		printf("\n");
+		
+		printf("Impressão contagem do valor %i: \n", valor2);
+		for(i = valor2; i >= 1; i--){
+			printf("%i \n", i);
+		}
+		
+		printf("\n");
+		
+		printf("Impressão contagem do valor %i: \n", valor3);
+		for(i = valor3; i >= 1; i--){
+			printf("%i \n", i);
+		}
 	}
 	
-	printf("\n");
-	
-	printf("Impressão contagem do valor %i: \n", valor2);
-	for(i = valor2; i >= 1; i--){
-		printf("%i \n", i);
-	}
-	
-	printf("\n");
-	
-	printf("Impressão contagem do valor %i: \n", valor3);
-	for(i = valor3; i >= 1; i--){
-		printf("%i \n", i);
-	}
+	system("pause");
 	
 	return 0;
 }

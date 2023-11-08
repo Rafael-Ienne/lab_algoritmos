@@ -8,9 +8,9 @@ int main(int argc, char *argv[]) {
 	
 	setlocale(LC_ALL, "Portuguese");
 	
-	int vRas[10], r = 0, ra = 0, i= 0, existe = 0, quantRa = 0, tamanho = 0;
+	int vRas[10], r = 0, ra = 0, i= 0, j = 0, existe = 0, quantRa = 0, tamanho = 0;
 	
-	for(i = 0; i <= 9; i++){
+	for(i = 0; i < 10; i++){
 		vRas[i] = -1;
 	}
 	
@@ -36,7 +36,6 @@ int main(int argc, char *argv[]) {
 				if(ra > 0){
 					vRas[tamanho] = ra;
 					printf("Valor adicionado! \n");
-					printf("\n");
 					tamanho = tamanho + 1;
 				} else {
 					printf("Valores negativos ou nulos não são inválidos! \n");
@@ -50,16 +49,20 @@ int main(int argc, char *argv[]) {
 			if(tamanho == 0){
 				printf("O vetor está vazio para fazer a operação \n");
 			} else {
-				printf("Informe o RA que se deseja remover (deixar nulo): ");
+				printf("Informe o RA que se deseja remover: ");
 				scanf("%i", &ra);
 				
 				if(ra > 0){
-					for(i = 0; i <= 9; i++){
+					for(i = 0; i < 10; i++){
 						if(vRas[i] == ra){
 							existe += 1;
-							vRas[i] = -1;
+							for (j = i; j < tamanho - 1; j++) {
+                    			vRas[j] = vRas[j + 1];
+               				}
+               				vRas[tamanho - 1] = -1;
 							printf("Valor removido! \n");
 							tamanho = tamanho - 1;
+							break;
 						} 
 					}
 				} else {
@@ -72,7 +75,6 @@ int main(int argc, char *argv[]) {
 				printf("Valor não encontrado! \n");
 			}
 			
-			printf("\n");
 			
 		} else if(r == 3){
 			
@@ -85,10 +87,11 @@ int main(int argc, char *argv[]) {
 				scanf("%i", &ra);
 				
 				if(ra > 0){
-					for(i = 0; i <= 9; i++){
+					for(i = 0; i < 10; i++){
 						if(vRas[i] == ra){
 							existe += 1;
 							printf("Posição do RA %i: %i \n", ra, i);
+							break;
 						} 
 					}
 				} else {
@@ -98,7 +101,6 @@ int main(int argc, char *argv[]) {
 			
 			if(existe == 0){
 				printf("Valor não encontrado! \n");
-				printf("\n");
 			}
 			
 		} else if(r == 4){
@@ -106,20 +108,18 @@ int main(int argc, char *argv[]) {
 			if(tamanho == 0){
 				printf("O vetor está vazio \n");
 			} else {
-				for(i = 0; i <= 9; i++){
+				for(i = 0; i < 10; i++){
 					if(vRas[i] > 0){
 						printf("%i \n", vRas[i]);
 					}
 				}
 			}
 			
-			printf("\n");
-			
 		} else if(r == 5){
 			
 			quantRa = 0;
 			
-			for(i = 0; i <= 9; i++){
+			for(i = 0; i < 10; i++){
 				if(vRas[i] > 0){
 					quantRa += 1;
 				}

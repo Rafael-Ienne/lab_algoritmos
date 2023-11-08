@@ -8,10 +8,10 @@ int main(int argc, char *argv[]) {
 	
 	setlocale(LC_ALL, "Portuguese");
 	
-	int i = 0, option = 0, idades[8], somaIdades = 0, quantPares = 0, somaPares = 0, quantMaiores = 0, somaMaiores = 0;
+	int i = 0, option = 0, idades[8], somaIdades = 0, quantPares = 0, somaPares = 0, quantMaiores = 0, somaMaiores = 0, tamanho = 0, idade = 0;
 	
-	for(i = 0; i <= 7; i++){
-		idades[i] = -1;
+	for(i = 0; i < 8; i++){
+		idades[i] = 0;
 	}
 	
 	do {
@@ -35,17 +35,28 @@ int main(int argc, char *argv[]) {
 		
 		if(option == 1){
 			
-			for(i = 0; i <= 7; i++){
+			for(i = 0; i < 8; i++){
 				idades[i] = 0;
 			}
+			
+			tamanho = 0;
 			
 			printf("Idades zeradas! \n");
 			
 		} else if(option == 2){
 			
-			for(i = 0; i <= 7; i++){
+			tamanho = 0;
+			
+			while(tamanho < 8){
 				printf("Informe uma idade: ");
-				scanf("%i", &idades[i]);
+				scanf("%i", &idade);
+				
+				if(idade <= 0){
+					printf("Idades nulas ou negativas não são permitidas. Tente novamente \n");
+				} else {
+					idades[tamanho] = idade;
+					tamanho++;
+				}
 			}
 			
 			printf("\n");
@@ -54,27 +65,35 @@ int main(int argc, char *argv[]) {
 			
 		} else if(option == 3){
 			
-			for(i = 0; i <= 7; i++){
-				printf("%i \n", idades[i]);
+			if(tamanho == 0){
+				printf("O vetor está vazio \n");
+			} else {
+				for(i = 0; i < 8; i++){
+					printf("%i \n", idades[i]);
+				}
 			}
 			
 		} else if(option == 4){
 			
 			somaIdades = 0;
 			
-			for(i = 0; i <= 7; i++){
-				somaIdades += idades[i];
+			for(i = 0; i < 8; i++){
+				somaIdades += idades[i];	
 			}
 			
 			printf("A soma das idades é: %i \n", somaIdades);
 			
 		} else if(option == 5){
 			
-			printf("Idades pares existentes no vetor: \n");
+			if(tamanho == 0){
+				printf("O vetor está vazio \n");
+			} else {
+				printf("Idades pares existentes no vetor: \n");
 			
-			for(i = 0; i <= 7; i++){
-				if(idades[i] % 2 == 0){
-					printf("%i \n", idades[i]);
+				for(i = 0; i < 8; i++){
+					if(idades[i] % 2 == 0){
+						printf("%i \n", idades[i]);
+					}
 				}
 			}
 			
@@ -82,33 +101,46 @@ int main(int argc, char *argv[]) {
 		 	
 		 	quantPares = 0;
 		 	
-		 	for(i = 0; i <= 7; i++){
-				if(idades[i] % 2 == 0){
-					quantPares += 1;
+		 	if(tamanho == 0){
+				printf("O vetor esta vazio \n");
+			} else {
+				for(i = 0; i < 8; i++){
+					if(idades[i] % 2 == 0){
+						quantPares += 1;
+					}
 				}
+				
+				printf("Quantidade total de idades pares no vetor: %i \n", quantPares);
 			}
-			
-			printf("Quantidade total de idades pares no vetor: %i \n", quantPares);
 		 	
 		} else if(option == 7){
-		 	
+			
 		 	somaPares = 0;
 		 	
-		 	for(i = 0; i <= 7; i++){
-				if(idades[i] % 2 == 0){
-					somaPares += idades[i];
+		 	if(tamanho == 0){
+				printf("O vetor esta vazio \n");
+			} else {
+				
+				for(i = 0; i < 8; i++){
+					if(idades[i] % 2 == 0){
+						somaPares += idades[i];
+					}
 				}
+				
+				printf("Soma total das idades pares no vetor: %i \n", somaPares);
 			}
-			
-			printf("Soma total das idades pares no vetor: %i \n", somaPares);
 		 	
 		} else if(option == 8){
+			
+			if(tamanho == 0){
+				printf("O vetor está vazio \n");
+			} else {
+				printf("Idades menores que 18: \n");
 		 	
-		 	printf("Idades menores que 18: \n");
-		 	
-		 	for(i = 0; i <= 7; i++){
-				if(idades[i] < 18){
-					printf("%i \n", idades[i]);
+			 	for(i = 0; i < 8; i++){
+					if(idades[i] < 18){
+						printf("%i \n", idades[i]);
+					}
 				}
 			}
 		 	
@@ -116,25 +148,35 @@ int main(int argc, char *argv[]) {
 		 	
 		 	quantMaiores = 0;
 		 	
-		 	for(i = 0; i <= 7; i++){
-				if(idades[i] >= 18){
-					quantMaiores += 1;
+		 	if(tamanho == 0){
+				printf("O vetor está vazio \n");
+			} else {
+				
+				for(i = 0; i < 8; i++){
+					if(idades[i] >= 18){
+						quantMaiores += 1;
+					}
 				}
+				
+				printf("Quantidade de idades maiores ou iguais a 18 anos: %i \n", quantMaiores);
 			}
-			
-			printf("Quantidade de idades maiores ou iguais a 18 anos: %i \n", quantMaiores);
 			
 		} else if(option == 10){
 			
 			somaMaiores = 0;
 			
-			for(i = 0; i <= 7; i++){
-				if(idades[i] >= 18){
-					somaMaiores += idades[i];
+			if(tamanho == 0){
+				printf("O vetor está vazio \n");
+			} else {
+				
+				for(i = 0; i < 8; i++){
+					if(idades[i] >= 18){
+						somaMaiores += idades[i];
+					}
 				}
+				
+				printf("Soma das idades maiores ou iguais a 18 anos: %i \n", somaMaiores);
 			}
-			
-			printf("Soma das idades maiores ou iguais a 18 anos: %i \n", somaMaiores);
 			
 		} else if(option == 11){
 			
@@ -142,7 +184,6 @@ int main(int argc, char *argv[]) {
 			
 		} else {
 			printf("Valor inválido. Tente novamente. \n");
-			printf("\n");
 		}
 
 	} while(option != 11);

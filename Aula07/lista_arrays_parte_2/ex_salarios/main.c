@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
 	setlocale(LC_ALL, "Portuguese");
 	
 	float salarios[100], salario = 0.0, somaTotal = 0.0, somaX = 0.0, maiorSalario = 0.0, menorSalario = 0.0, mediaSalarios = 0.0, porcentagem = 0.0;
-	int r = 0, i = 0, n = 0, quantRepeticoes = 0, existe = 0, quantSalarios = 0, tamanho = 0, x = 0;
+	int r = 0, i = 0, n = 0, quantRepeticoes = 0, existe = 0, quantSalarios = 0, tamanho = 0, x = 0, j = 0;
 	
 	for(i = 0; i < 100; i++){
 		salarios[i] = 0.0;
@@ -76,6 +76,10 @@ int main(int argc, char *argv[]) {
 						printf("Posição inválida \n");
 					} else if (salarios[x] > 0.0){
 						salarios[x] = 0.0;
+						for(j = x; j < tamanho - 1; j++){
+							salarios[j] = salarios[j + 1];
+						}
+						salarios[tamanho - 1] = -1;
 						printf("Salário removido \n");
 						tamanho--;
 					} else {
@@ -110,7 +114,7 @@ int main(int argc, char *argv[]) {
 	        		scanf("%f", &salario);
 	        		
 	        		for(i = 0; i < 100; i++){
-	        			if(salarios[i] == salario && salario > 0.0){
+	        			if(salarios[i] == salario && salarios[i] > 0.0){
 	        				printf("O salário R$ %.2f existe na posição %i \n", salarios[i], i);
 	        				existe = 1;
 	        				break;
@@ -118,7 +122,7 @@ int main(int argc, char *argv[]) {
 					}
 				}
 				
-				if(existe == 1){
+				if(existe == 0){
 					printf("O valor não existe no vetor \n");
 				}
 				
@@ -136,11 +140,11 @@ int main(int argc, char *argv[]) {
 	        			printf("Informe a posição que se deseja ser acessada: ");
 		        		scanf("%i", &n);
 		        		
-		        		if(n >= 0 && n < tamanho && salarios[n] == 0.0){
+		        		if(n >= 0 && n < 100 && salarios[n] == 0.0){
 		        			salarios[n] = salario;
 		        			tamanho++;
 		        			printf("Valor adicionado! \n");
-						} else if(n < 0 || n >= tamanho){
+						} else if(n < 0 || n >= 100){
 							printf("Posição não encontrada! \n");
 						} else {
 							printf("Posição já ocupada por outro valor \n");
@@ -171,7 +175,7 @@ int main(int argc, char *argv[]) {
 	        		
 	        		if(salario > 0){
 	        			
-	        			for(i = 0; i < tamanho; i++){
+	        			for(i = 0; i < 100; i++){
 		        			if(salarios[i] == salario){
 		        				existe = 1;
 		        				quantRepeticoes += 1;
@@ -195,7 +199,7 @@ int main(int argc, char *argv[]) {
         		
         		somaTotal = 0.0;
         		
-        		for (i = 0; i < tamanho; i++){
+        		for (i = 0; i < 100; i++){
         			somaTotal += salarios[i];
 				}
 				
@@ -218,7 +222,7 @@ int main(int argc, char *argv[]) {
 	        		
 	        		if(salario > 0){
 	        			
-	        			for(i = 0; i < tamanho; i++){
+	        			for(i = 0; i < 100; i++){
 		        			if(salarios[i] == salario){
 		        				quantRepeticoes += 1;
 							}
@@ -265,7 +269,7 @@ int main(int argc, char *argv[]) {
 	        		
 	        		if(salario > 0){
 	        			
-	        			for(i = 0; i < tamanho; i++){
+	        			for(i = 0; i < 100; i++){
 		        			if(salarios[i] == salario){
 		        				quantRepeticoes += 1;
 							}
@@ -278,7 +282,7 @@ int main(int argc, char *argv[]) {
 					if(quantRepeticoes > 0){
 						printf("Quantidade de vezes que o salário R$ %.2f aparece: %i \n", salario, quantRepeticoes);
 					} else {
-						printf("O salário informado não aparece no vetor.\n", salario);
+						printf("O salário informado não aparece no vetor \n", salario);
 					}
 				}
 				
@@ -294,7 +298,7 @@ int main(int argc, char *argv[]) {
 					printf("Informe o valor base: R$ ");
 	        		scanf("%f", &salario);
 	        		
-	        		for(i = 0; i < tamanho; i++){
+	        		for(i = 0; i < 100; i++){
 	        			if(salarios[i] > salario && salarios[i] > 0.0){
 	        				quantSalarios += 1;
 						}
@@ -311,9 +315,10 @@ int main(int argc, char *argv[]) {
         		if(tamanho == 0){
         			printf("O vetor está vazio \n");
 				} else {
+					
 					maiorSalario = salarios[0];
         		
-	        		for(i = 0; i < tamanho; i++){
+	        		for(i = 0; i < 100; i++){
 	        			if(salarios[i] > maiorSalario && salarios[i] > 0.0){
 	        				maiorSalario = salarios[i];
 						}
@@ -321,7 +326,6 @@ int main(int argc, char *argv[]) {
 					
 					printf("Maior salário: R$ %.2f \n", maiorSalario);
 				}
-        		
 				
 				break;
         		
@@ -333,7 +337,7 @@ int main(int argc, char *argv[]) {
 					
 					menorSalario = salarios[0];
         		
-	        		for(i = 0; i < tamanho; i++){
+	        		for(i = 0; i < 100; i++){
 	        			if(salarios[i] < menorSalario && salarios[i] > 0.0){
 	        				menorSalario = salarios[i];
 						}
@@ -342,7 +346,6 @@ int main(int argc, char *argv[]) {
 					printf("Menor salário: R$ %.2f \n", menorSalario);
 				}
         		
-				
 				break;
         		
         	case 14:
@@ -380,7 +383,12 @@ int main(int argc, char *argv[]) {
 							if(salarios[i] == salario){
 								existe += 1;
 								salarios[i] = 0.0;
+								for(j = x; j < tamanho - 1; j++){
+									salarios[j] = salarios[j + 1];
+								}
+								salarios[tamanho - 1] = 0.0;
 								tamanho--;
+								printf("Salario removido \n");
 							}
 						}
 						
@@ -466,6 +474,7 @@ int main(int argc, char *argv[]) {
 	        		if(porcentagem <= 0){
 	        			printf("Porcentagem nula ou negativa não é permitida \n");
 					} else {
+						
 						for(i = 0; i < 100; i++){
 	        				salarios[i] += ((salarios[i] * porcentagem) / 100);
 						}

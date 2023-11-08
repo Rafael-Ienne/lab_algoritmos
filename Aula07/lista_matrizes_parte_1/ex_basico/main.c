@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
 	
 	setlocale(LC_ALL, "Portuguese");
 	
-	int valores[3][3], i = 0, j = 0, r = 0, soma = 0, tamanho = 0;
+	int valores[3][3], i = 0, j = 0, r = 0, soma = 0;
 	
 	for(i = 0; i < 3; i++){
 		for(j = 0; j < 3; j++){
@@ -29,26 +29,22 @@ int main(int argc, char *argv[]) {
 		printf("\n");
 		
 		if(r == 1){
+			
 			for(i = 0; i < 3; i++){
 				for(j = 0; j < 3; j++){
 					printf("Informe um valor para preencher a posição [%i][%i]: ", i, j);
 					scanf("%i", &valores[i][j]);
-					tamanho++;
 				}
 			}
 			printf("Valores carregados \n");
 	
 		} else if(r == 2){
 			
-			if(tamanho == 0){
-				printf("A matriz está vazia \n");
-			} else {
-				for(i = 0; i < 3; i++){
-					for(j = 0; j < 3; j++){
-						printf("[%i][%i]: %i\t",i, j, valores[i][j]);
-					}
-					printf("\n");
+			for(i = 0; i < 3; i++){
+				for(j = 0; j < 3; j++){
+					printf("[%i][%i]: %i\t",i, j, valores[i][j]);
 				}
+				printf("\n");
 			}
 			
 		} else if(r == 3){
